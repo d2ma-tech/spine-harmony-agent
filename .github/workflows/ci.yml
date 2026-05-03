@@ -1,0 +1,102 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install DICOM export dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r tools/dicom-export/requirements.txt
+
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -p 'test_*.py'
+
+  release-safety:
+    name: Release safety checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify no disallowed binary medical files
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          bad_suffixes = {'.dcm', '.dicom', '.nii', '.mha', '.mhd', '.nrrd', '.pdf', '.doc', '.docx', '.zip', '.7z', '.tar', '.gz'}
+          bad = []
+          for p in Path('.').rglob('*'):
+              if '.git' in p.parts or not p.is_file():
+                  continue
+              suffix = ''.join(p.suffixes[-2:]).lower() if ''.join(p.suffixes[-2:]).lower() == '.nii.gz' else p.suffix.lower()
+              if suffix in bad_suffixes:
+                  bad.append(str(p))
+          if bad:
+              raise SystemExit('Disallowed files found:\n' + '\n'.join(bad))
+          print('No disallowed binary medical files found.')
+          PY
+
+      - name: Verify required safety language exists
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          checks = {
+              'README.md': [
+                  'not medical software',
+                  'not a medical device',
+                  'Do not use it to make or delay medical decisions',
+                  'DISCLAIMER.md',
+                  'TERMS.md',
+              ],
+              'DISCLAIMER.md': [
+                  'not medical advice',
+                  'not diagnosis',
+                  'not treatment guidance',
+                  'not emergency triage',
+                  'not radiology interpretation',
+                  'clinical decision support',
+              ],
+              'TERMS.md': [
+                  'No medical relationship',
+                  'clinician-patient relationship',
+                  'No clinical use or reliance',
+                  'No warranties',
+                  'Limitation of liability',
+              ],
+              'PRIVACY.md': [
+                  'hosted LLM',
+                  'disclosure of medical information',
+              ],
+          }
+          missing = []
+          for file, phrases in checks.items():
+              text = Path(file).read_text(encoding='utf-8')
+              low = text.lower()
+              for phrase in phrases:
+                  if phrase.lower() not in low:
+                      missing.append(f'{file}: {phrase}')
+          if missing:
+              raise SystemExit('Missing required safety language:\n' + '\n'.join(missing))
+          print('Required safety language present.')
+          PY

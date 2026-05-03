@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: "Spine Harmony"
+message: "If you use Spine Harmony in public work, research, clinical-adjacent tooling, or derivative agents, please cite D2MA Limited and link to the repository."
+type: software
+authors:
+  - name: "D2MA Limited"
+url: "https://github.com/d2ma-tech/spine-harmony-agent"
+license: "MIT"
+date-released: "2026"

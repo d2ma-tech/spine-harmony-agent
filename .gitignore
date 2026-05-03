@@ -1,0 +1,27 @@
+# Private user data at repository root
+/USER.md
+/SpineHarmony_Journal.md
+/SPINE_HISTORY.md
+/symptom-tracker-private.md
+/procedure-recovery-diary.md
+/memory/
+/exports/
+/reports/private/
+/transcripts/
+/imaging/
+/records/
+*.pdf
+*.docx
+*.dicom
+*.dcm
+*.zip
+
+# Secrets
+.env
+*.key
+*.pem
+*.token
+
+# System
+.DS_Store
+__pycache__/

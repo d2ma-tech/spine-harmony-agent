@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spine Harmony Report Template</title>
+<style>
+:root{
+  --bg:#ffffff;
+  --text:#171717;
+  --muted:#4d4d4d;
+  --soft:#fafafa;
+  --line:rgba(0,0,0,.08);
+  --blue:#0068d6;
+  --blue-bg:#ebf5ff;
+  --warn:#8a4b00;
+  --warn-bg:#fff7e6;
+  --danger:#9f1239;
+  --danger-bg:#fff1f2;
+  --radius:14px;
+  --shadow:0 0 0 1px var(--line),0 2px 2px rgba(0,0,0,.04),0 8px 24px -18px rgba(0,0,0,.18);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height:1.55;
+}
+a{color:var(--blue);text-decoration:none}
+.page{max-width:1120px;margin:0 auto;padding:48px 24px 72px}
+.hero{padding:40px 0 28px;border-bottom:1px solid #ebebeb;margin-bottom:28px}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:650;margin-bottom:12px}
+h1{font-size:clamp(36px,5vw,58px);line-height:.98;letter-spacing:-.055em;margin:0 0 18px;font-weight:700;max-width:920px}
+.subtitle{font-size:19px;color:var(--muted);max-width:820px;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.pill{display:inline-flex;align-items:center;border-radius:999px;background:var(--blue-bg);color:var(--blue);font-size:12px;font-weight:600;padding:5px 10px}.pill.warn{background:var(--warn-bg);color:var(--warn)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:26px 0}.metric{background:var(--soft);border-radius:var(--radius);box-shadow:0 0 0 1px var(--line);padding:18px}.metric strong{display:block;font-size:24px;letter-spacing:-.04em}.metric span{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:28px;align-items:start}.toc{position:sticky;top:20px;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}.toc h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 10px}.toc ol{margin:0;padding-left:20px;color:var(--muted);font-size:14px}.toc li{margin:8px 0}.content{min-width:0}
+section{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:26px;margin-bottom:18px;break-inside:avoid}h2{font-size:25px;line-height:1.15;letter-spacing:-.035em;margin:0 0 14px}h3{font-size:17px;margin:22px 0 8px}.label{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}.callout{border-radius:12px;padding:16px 18px;margin:16px 0;background:var(--warn-bg);color:var(--warn);box-shadow:0 0 0 1px rgba(138,75,0,.14)}.callout.danger{background:var(--danger-bg);color:var(--danger);box-shadow:0 0 0 1px rgba(159,18,57,.14)}
+ul,ol{padding-left:22px}li{margin:6px 0}.source-list li{font-size:14px;color:var(--muted)}.question{padding:14px 0;border-top:1px solid #ebebeb}.question:first-child{border-top:0}.priority{font-size:11px;border-radius:999px;padding:3px 8px;background:#f5f5f5;color:#555;margin-right:8px;font-weight:700;text-transform:uppercase}.footer{color:var(--muted);font-size:12px;margin-top:28px;text-align:center}
+@media(max-width:860px){.layout{grid-template-columns:1fr}.toc{position:static}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.page{padding:28px 16px}.grid{grid-template-columns:1fr}section{padding:20px}}
+@media print{body{background:#fff}.page{max-width:none;padding:18mm}.toc{position:static;box-shadow:none;border:1px solid #ddd}.layout{display:block}section{box-shadow:none;border:1px solid #ddd;page-break-inside:avoid}.hero{padding-top:0}a{color:inherit}.no-print{display:none}}
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="hero">
+    <div class="eyebrow">Spine Harmony patient-facing report</div>
+    <h1>🦴 [User-Specific Report Title]</h1>
+    <p class="subtitle">A source-grounded spine-health briefing for personal organization and clinician discussion. This template should be adapted to the user's actual records, timeline, anatomy, and decision questions.</p>
+    <div class="meta">
+      <span class="pill">Generated: [Date]</span>
+      <span class="pill">Sources: [Count]</span>
+      <span class="pill warn">Not medical advice</span>
+    </div>
+  </header>
+
+  <div class="callout danger">
+    <strong>Clinical caveat:</strong> This report is not diagnosis, treatment advice, radiology interpretation, validated measurement, clinical decision support, or emergency triage. Review with qualified clinicians.
+  </div>
+
+  <div class="grid">
+    <div class="metric"><strong>[Time span]</strong><span>Timeline covered</span></div>
+    <div class="metric"><strong>[Region(s)]</strong><span>Anatomy discussed</span></div>
+    <div class="metric"><strong>[Source count]</strong><span>Sources reviewed</span></div>
+    <div class="metric"><strong>[Decision]</strong><span>Main consultation question</span></div>
+  </div>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Report contents">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#summary">Executive Summary</a></li>
+        <li><a href="#profile">Patient Profile</a></li>
+        <li><a href="#timeline">Longitudinal Timeline</a></li>
+        <li><a href="#symptoms">Symptom Profile & Pain Generator Mapping</a></li>
+        <li><a href="#imaging">Imaging Findings</a></li>
+        <li><a href="#official-report">Official Radiology Report</a></li>
+        <li><a href="#audit">Clinical Report Audit</a></li>
+        <li><a href="#treatment">Treatment / Procedure Analysis</a></li>
+        <li><a href="#doctor">Discussion Points for Your Doctor</a></li>
+        <li><a href="#plan">Prioritized Action Plan</a></li>
+        <li><a href="#sources">Sources</a></li>
+      </ol>
+    </nav>
+
+    <div class="content">
+      <section id="summary"><div class="label">Section 1</div><h2>Executive Summary</h2><p>[Concise summary of what the source material suggests, what remains uncertain, and what the user should discuss with a clinician.]</p></section>
+      <section id="profile"><div class="label">Section 2</div><h2>Patient Profile</h2><p>[Relevant patient context only. Avoid unnecessary identifiers in shareable versions.]</p></section>
+      <section id="timeline"><div class="label">Section 3</div><h2>[User-Specific] Longitudinal Timeline</h2><p>[Timeline adapted to the user: e.g. 8-week, 18-month, 14-year, post-procedure, or multi-consultation timeline.]</p></section>
+      <section id="symptoms"><div class="label">Section 4</div><h2>Symptom Profile & Pain Generator Mapping</h2><p>[Symptoms, triggers, relieving factors, functional limits, and cautious source-to-symptom mapping. Do not present as diagnosis.]</p></section>
+      <section id="imaging"><div class="label">Section 5</div><h2>[Lumbar / Cervical / Thoracic] Imaging Findings</h2><p>[Region-specific imaging summary. Separate official report facts from LLM/vision-model observations and agent interpretation.]</p><div class="callout"><strong>Imaging caveat:</strong> Model-generated image observations are not radiology interpretation or validated measurement.</div></section>
+      <section id="official-report"><div class="label">Section 6</div><h2>Official Radiology Report</h2><p>[Quote or summarize official radiology report separately from agent interpretation.]</p></section>
+      <section id="audit"><div class="label">Section 7</div><h2>Clinical Report Audit</h2><p>[Contradictions, missing data, unclear wording, and items to verify.]</p></section>
+      <section id="treatment"><div class="label">Section 8</div><h2>[Procedure-Specific] Analysis</h2><p>[Treatment research or procedure-specific section adapted to the user's actual options/procedures.]</p></section>
+      <section id="doctor"><div class="label">Section 9</div><h2>Discussion Points for Your Doctor</h2><div class="question"><span class="priority">High</span>[Question]</div><div class="question"><span class="priority">Medium</span>[Question]</div></section>
+      <section id="plan"><div class="label">Section 10</div><h2>Prioritized Action Plan</h2><ul><li>[Record to obtain / question to ask / symptom to monitor — not self-treatment instruction.]</li></ul></section>
+      <section id="sources"><div class="label">Section 11</div><h2>Sources</h2><ul class="source-list"><li>[Source file/report/note + reliability caveat]</li></ul></section>
+    </div>
+  </div>
+  <p class="footer">Generated by Spine Harmony — © D2MA Limited. <a href="https://d2ma.com" rel="noopener">d2ma.com</a>. For personal organization and clinician discussion only. Not medical advice.</p>
+</main>
+</body>
+</html>
