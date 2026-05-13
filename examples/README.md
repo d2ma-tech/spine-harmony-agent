@@ -7,6 +7,7 @@ Current examples:
 - `anonymized-intake.md`
 - `anonymized-journal.md`
 - `anonymized-report.html`
+- `reports/maya-r-longform-sample/` — long-form synthetic public sample report with HTML, preview image, full-page image, source summary, and privacy/similarity audit.
 
 Before release, confirm the examples remain generic and do not mirror any private patient journey closely enough to be identifying.
 
