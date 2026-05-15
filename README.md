@@ -97,13 +97,14 @@ Use [`REPORTS.md`](REPORTS.md), [`docs/report-generation.md`](docs/report-genera
 
 ## Beginner setup
 
-If you are new to coding agents and want to run Spine Harmony with Claude, start here:
+If you are new to coding agents and want to run Spine Harmony, start here:
 
+- **OpenAI Codex / Copilot-style beginner guide:** [`docs/openai-codex.md`](docs/openai-codex.md)
 - **Claude Code / Claude Cowork beginner guide:** [`docs/claude-code.md`](docs/claude-code.md)
 - **General quickstart:** [`docs/quickstart.md`](docs/quickstart.md)
 - **Privacy model:** [`docs/privacy-model.md`](docs/privacy-model.md)
 
-The recommended novice setup is two folders: keep this public repository as the template/instruction pack, then create a separate private workspace for real medical notes. Copy `AGENTS.md` into that private folder as `CLAUDE.md`, copy the starter templates, and open Claude inside the private folder. The Claude guide gives copy-and-paste commands plus a no-terminal fallback.
+The recommended novice setup is two folders: keep this public repository as the template/instruction pack, then create a separate private workspace for real medical notes. For OpenAI Codex, copy `AGENTS.md` into that private folder as `AGENTS.md`, initialize the private folder as a local-only git repo, and start Codex inside the private folder. For Claude, copy `AGENTS.md` into the private folder as `CLAUDE.md`. Both beginner guides give copy-and-paste commands plus no-terminal fallbacks.
 
 ## Runtime compatibility
 
@@ -113,8 +114,11 @@ Example target runtimes include:
 
 - Hermes Agent;
 - OpenClaw;
+- OpenAI Codex / Copilot-style coding-agent workflows;
 - Claude Code / Claude-based coding-agent workflows;
 - other local or hosted AI-agent runtimes with equivalent file/tool access.
+
+OpenAI Codex compatibility note: this repository can be used as a project instruction/workspace pack for Codex by keeping `AGENTS.md` in a private local git workspace and keeping private patient files outside the public repository. Complete beginner instructions are in `docs/openai-codex.md`.
 
 Claude Code / Claude Cowork compatibility note: this repository can be used as a project instruction/workspace pack for Claude by placing the core instructions in a project-level `CLAUDE.md` file and keeping private patient files outside version control. Complete beginner instructions are in `docs/claude-code.md`; broader runtime notes are in `docs/runtime-compatibility.md`.
 

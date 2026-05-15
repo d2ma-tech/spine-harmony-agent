@@ -2,7 +2,7 @@
 
 1. Clone this repository or download it from GitHub as a ZIP file.
 2. Copy templates into a private workspace outside the public repo.
-3. Configure your chosen AI-agent runtime. If using Claude Code / Claude Cowork, follow `docs/claude-code.md` first.
+3. Configure your chosen AI-agent runtime. If using OpenAI Codex / a Copilot-style OpenAI workflow, follow `docs/openai-codex.md` first. If using Claude Code / Claude Cowork, follow `docs/claude-code.md` first.
 4. Keep real patient data outside version control.
 5. Start with `templates/USER.md`, `templates/SpineHarmony_Journal.md`, `templates/qa-log.md`, and `templates/symptom-tracker.md`.
 6. Use symptom/pain tracking to record daily facts before asking the agent for trend summaries. See `docs/symptom-pain-tracking.md`.
