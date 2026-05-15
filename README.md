@@ -95,6 +95,16 @@ Spine Harmony reports should be structured, source-grounded, and visually clean.
 
 Use [`REPORTS.md`](REPORTS.md), [`docs/report-generation.md`](docs/report-generation.md), and [`templates/report.html`](templates/report.html) as the baseline. Reports should use a restrained, professional HTML style: white background, strong hierarchy, card-based sections, clear caveats, print-aware CSS, and no decorative clutter.
 
+## Beginner setup
+
+If you are new to coding agents and want to run Spine Harmony with Claude, start here:
+
+- **Claude Code / Claude Cowork beginner guide:** [`docs/claude-code.md`](docs/claude-code.md)
+- **General quickstart:** [`docs/quickstart.md`](docs/quickstart.md)
+- **Privacy model:** [`docs/privacy-model.md`](docs/privacy-model.md)
+
+The recommended novice setup is two folders: keep this public repository as the template/instruction pack, then create a separate private workspace for real medical notes. Copy `AGENTS.md` into that private folder as `CLAUDE.md`, copy the starter templates, and open Claude inside the private folder. The Claude guide gives copy-and-paste commands plus a no-terminal fallback.
+
 ## Runtime compatibility
 
 Spine Harmony is designed to be **runtime-agnostic**. It can be adapted to agent systems that support persistent instructions, workspace files, and tool use.
@@ -106,7 +116,7 @@ Example target runtimes include:
 - Claude Code / Claude-based coding-agent workflows;
 - other local or hosted AI-agent runtimes with equivalent file/tool access.
 
-Claude Code compatibility note: this repository can be used as a project instruction/workspace pack for Claude Code by placing the core instructions in a project-level instruction file and keeping private patient files outside version control. See `docs/claude-code.md` and `docs/runtime-compatibility.md`.
+Claude Code / Claude Cowork compatibility note: this repository can be used as a project instruction/workspace pack for Claude by placing the core instructions in a project-level `CLAUDE.md` file and keeping private patient files outside version control. Complete beginner instructions are in `docs/claude-code.md`; broader runtime notes are in `docs/runtime-compatibility.md`.
 
 ## Repository contents
 
